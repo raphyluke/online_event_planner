@@ -31,6 +31,7 @@ class Events
 
     // UserID foreign key
     #[ORM\OneToOne(targetEntity: Users::class, inversedBy: 'events')]
+    #[ORM\JoinColumn(name: 'organizerID', referencedColumnName: 'user_id')]
     private ?int $organizerID = null;
 
 

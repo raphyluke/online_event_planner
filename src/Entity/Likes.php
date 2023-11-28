@@ -6,7 +6,7 @@ use App\Repository\LikesRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Users;
 use App\Entity\Events;
-
+use Doctrine\ORM\Mapping\JoinColumn;
 
 #[ORM\Entity(repositoryClass: LikesRepository::class)]
 class Likes
@@ -22,10 +22,12 @@ class Likes
 
     // UserID foreign key
     #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'likes')]
+    #[JoinColumn(name: 'UserID', referencedColumnName: 'user_id')]
     private ?int $userID = null;
 
     // EventID foreign key
     #[ORM\ManyToOne(targetEntity: Events::class, inversedBy: 'likes')]
+    #[JoinColumn(name: 'EventID', referencedColumnName: 'event_id')]
     private ?int $eventID = null;
 
     // Timestamp

@@ -20,11 +20,13 @@ class Comments
     private ?string $commentText = null;
 
     // UserID foreign key
-    #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'comments')]
+    #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'comments', )]
+    #[ORM\JoinColumn(name: 'UserID', referencedColumnName: 'user_id')]
     private ?int $userID = null;
 
     // EventID foreign key
     #[ORM\ManyToOne(targetEntity: Events::class, inversedBy: 'comments')]
+    #[ORM\JoinColumn(name: 'EventID', referencedColumnName: 'event_id')]
     private ?int $eventID = null;
 
     public function getId(): ?int
