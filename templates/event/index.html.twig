@@ -17,4 +17,8 @@
         <li>Your template at <code><a href="{{ 'D:/application_web/online_event_planner/templates/event/index.html.twig'|file_link(0) }}">templates/event/index.html.twig</a></code></li>
     </ul>
 </div>
+{{form_start(form)}}
+    {{form_widget(form)}}
+    <button type="submit">Submit</button>
+    {{form_end(form)}}
 {% endblock %}
